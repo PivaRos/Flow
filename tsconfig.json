@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "module": "esnext", // Change this to a compatible value
+    "target": "es2020", // Ensure the target is compatible
+    "moduleResolution": "node", // Helps with resolving Node.js modules
+    "strict": true
+  },
+  "extends": "expo/tsconfig.base"
+}
