@@ -9,6 +9,8 @@ interface CheckBoxProps {
   checked?: boolean;
   defaultChecked?: boolean;
   size?: Size;
+  disabled?: boolean;
+  value: string;
 }
 
 const getSizeStyles = createGetSizeStyles({
@@ -17,11 +19,13 @@ const getSizeStyles = createGetSizeStyles({
   lg: require("./__styles__/lg").default,
 });
 
-export const CheckBox = ({
+const CheckBox = ({
   onChange,
   checked,
   defaultChecked = false,
   size = "sm",
+  value,
+  disabled,
 }: CheckBoxProps) => {
   const styles = getSizeStyles<Style>(size);
   const [_checked, _setChecked] = useState(
@@ -36,18 +40,18 @@ export const CheckBox = ({
 
   useEffect(() => {
     //* notify the user for change only if the change did not get though him
-    if (checked !== undefined) {
-      onChange(_checked);
-    }
+    onChange(_checked);
   }, [_checked]);
 
   const handlePress = () => {
-    _setChecked((old) => !old);
+    if (!disabled) _setChecked((old) => !old);
   };
 
   return (
-    <TouchableWithoutFeedback style={styles.container} onPress={handlePress}>
-      <View></View>
+    <TouchableWithoutFeedback onPress={handlePress}>
+      <View style={styles.container}></View>
     </TouchableWithoutFeedback>
   );
 };
+
+export default CheckBox;

@@ -1,4 +1,4 @@
-import { CheckBox } from "../CheckBox";
+import CheckBox from "../CheckBox";
 
 export default {
   title: "Inputs/CheckBox",
@@ -14,12 +14,4 @@ export const Default = {
     size: "sm",
     onChange: () => {},
   },
-};
-
-export const Pinned = {
-  args: { size: "sm", onChange: () => {} },
-};
-
-export const Archived = {
-  args: { size: "sm", onChange: () => {} },
 };

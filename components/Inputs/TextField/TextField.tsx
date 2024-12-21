@@ -3,6 +3,8 @@ import { View } from "react-native";
 
 interface TextFieldProps {}
 
-export const TextField = ({}: TextFieldProps) => {
+const TextField = ({}: TextFieldProps) => {
   return <View></View>;
 };
+
+export default TextField;
